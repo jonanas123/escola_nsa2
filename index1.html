@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz - Curiosidades sobre Países</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+      background-color: #eef7ff;
+    }
+    h1 {
+      color: #222;
+    }
+    .quiz {
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: inline-block;
+      text-align: left;
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: none;
+      background: #28a745;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1e7e34;
+    }
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    /* @media para telas pequenas */
+    @media (max-width: 10000px) {
+      body {
+        margin: 20px;
+      }
+      .quiz {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Quiz de Curiosidades sobre Países</h1>
+
+  <div class="quiz">
+    <p><strong>Pergunta 1:</strong> Qual pais a baixo tem mais cangurus do que pessoas?</p>
+    <input type="radio" name="q1" value="errado"> Índia<br>
+    <input type="radio" name="q1" value="errado"> China<br>
+    <input type="radio" name="q1" value="correto"> ausrtalia<br>
+    <button onclick="checkAnswer('q1', 'res1')">Verificar</button>
+    <p id="res1" class="result"></p>
+  </div>
+
+  <div class="quiz">
+    <p><strong>Pergunta 2:</strong> Em qual país tem como principal lingua o ingles?</p>
+    <input type="radio" name="q2" value="correto"> india<br>
+    <input type="radio" name="q2" value="errado"> Itália<br>
+    <input type="radio" name="q2" value="errado"> Alemanha<br>
+    <button onclick="checkAnswer('q2', 'res2')">Verificar</button>
+    <p id="res2" class="result"></p>
+  </div>
+
+  <div class="quiz">
+    <p><strong>Pergunta 3:</strong> qual dos paises não tem como lingua principal o ingles?</p>
+    <input type="radio" name="q3" value="errado"> india<br>
+    <input type="radio" name="q3" value="correto"> Itália<br>
+    <input type="radio" name="q3" value="errado"> africa do sul<br>
+    <button onclick="checkAnswer('q3', 'res3')">Verificar</button>
+    <p id="res3" class="result"></p>
+  </div>
+
+  <br>
+ <a href="file:///C:/Users/Yyykt/Downloads/.html/jogo_curiosidades_paises.html"> <button onclick="window.location.href='index.html'">Voltar à Página Inicial</button></a>
+
+  <script>
+    function checkAnswer(questionName, resultId) {
+      let options = document.getElementsByName(questionName);
+      let result = document.getElementById(resultId);
+      let selected = null;
+
+      for (let i = 0; i < options.length; i++) {
+        if (options[i].checked) {
+          selected = options[i].value;
+          break;
+        }
+      }
+
+      if (selected === "correto") {
+        result.innerText = "✅ Resposta correta!";
+        result.style.color = "green";
+      } else if (selected === "errado") {
+        result.innerText = "❌ Resposta incorreta.";
+        result.style.color = "red";
+      } else {
+        result.innerText = "⚠️ Selecione uma resposta.";
+        result.style.color = "orange";
+      }
+    }
+  </script>
+</body>
+</html>
